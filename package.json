@@ -17,5 +17,8 @@
 	},
 	"engines": {
 		"node": ">=22.5.0"
-	}
+	},
+	"repository": "https://github.com/jessetane/namecheap-mcp",
+	"author": "jesse.tane@gmail.com",
+	"license": "MIT"
 }
