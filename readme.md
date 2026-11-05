@@ -4,7 +4,7 @@ Stdio MCP server for Namecheap domains and DNS.
 
 ## Why
 
-Namecheap's hosted MCP server (`mcp.namecheap.com`) breaks OAuth discovery by advertising `www.namecheap.com` (behind a Cloudflare bot challenge) as its authorization server, issues 20-minute access tokens with single-use rotating refresh tokens that die on concurrent calls or after ~24 hours, and forces full-zone replacements to edit a single DNS record. Raw Namecheap XML isn't much fun either (`HostName1`, `RecordType1`, `Address1`... where forgetting `EmailType` silently wipes your MX records).
+Namecheap's official MCP server is broken (OAuth behind Cloudflare bot challenges, 20-minute tokens that die on concurrent calls) and raw Namecheap XML is footgun city (forgetting `EmailType` when setting a single DNS host silently wipes your MX records).
 
 ## How
 
