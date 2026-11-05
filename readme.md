@@ -15,8 +15,21 @@ Namecheap's official MCP server auth is broken (OAuth discovery points at `www.n
 
 ## Tools
 
-* **`domains`**: `list`, `get`, `check`, `set_nameservers`, `set_contacts`, `set_lock`, `register`, `renew`, `balances`
-* **`dns`**: `get`, `set` (safe read-merge-write with automatic `EmailType` promotion/demotion, or `mode: "replace"`), `delete`, `set_email_forwarding`
+* **`domains`**
+	* `list` - List domains in account with paging and search.
+	* `get` - Get domain details, lock state, nameservers, WhoisGuard, and contacts.
+	* `check` - Check availability and pricing across standard and premium TLDs.
+	* `set_nameservers` - Switch between Namecheap BasicDNS (`default: true`) and custom nameservers.
+	* `set_contacts` - Update Registrant, Tech, Admin, and AuxBilling contacts.
+	* `set_lock` - Lock or unlock registrar transfer lock.
+	* `register` - Register a new domain (auto-fills contacts from an existing domain when omitted).
+	* `renew` - Renew a domain.
+	* `balances` - Get account balances.
+* **`dns`**
+	* `get` - List DNS host records, `emailType`, and email forwarding rules.
+	* `set` - Safe read-merge-write DNS updates (with automatic `EmailType` promotion/demotion, or `mode: "replace"`).
+	* `delete` - Delete specific DNS host records by `id` or `{ type, name, value }`.
+	* `set_email_forwarding` - Configure mailbox forwarding rules.
 
 ## Usage
 
@@ -27,8 +40,14 @@ $ cp .env.example .env
 
 Configure either **Direct Namecheap API** credentials or a **Bearer Proxy** in `.env` (or via `env` in `mcp_config.json`):
 
-* **Direct API mode**: set `NAMECHEAP_API_KEY`, `NAMECHEAP_USER`, and `NAMECHEAP_CLIENT_IP` (plus optional `NAMECHEAP_URL`, which defaults to `https://api.namecheap.com/xml.response`).
-* **Bearer Proxy mode**: set `NAMECHEAP_URL` and `NAMECHEAP_TOKEN`.
+* **Direct API mode**
+	* `NAMECHEAP_API_KEY` - Namecheap XML API key.
+	* `NAMECHEAP_USER` - Namecheap username.
+	* `NAMECHEAP_CLIENT_IP` - Whitelisted client IPv4 address.
+	* `NAMECHEAP_URL` *(optional)* - Defaults to `https://api.namecheap.com/xml.response`.
+* **Bearer Proxy mode**
+	* `NAMECHEAP_URL` - Proxy endpoint URL.
+	* `NAMECHEAP_TOKEN` - Proxy bearer token.
 
 ```json
 {
