@@ -4,7 +4,7 @@ Stdio MCP server for Namecheap domains and DNS.
 
 ## Why
 
-Auth on Namecheap's official MCP server is broken (OAuth discovery points at `www.namecheap.com` instead of `mcp.namecheap.com`, and single-use refresh tokens expire after ~24 hours or on concurrent refreshes), and `setHosts` is a footgun that overwrites the entire DNS zone (and resets `EmailType` if omitted) when you just want to patch a record.
+Namecheap's official MCP server auth is broken (OAuth discovery points at `www.namecheap.com` instead of `mcp.namecheap.com`, single-use refresh tokens expire after ~24 hours or on concurrent refreshes), and `setHosts` is a footgun that overwrites the entire DNS zone (and resets `EmailType` if omitted) when you just want to patch one record.
 
 ## How
 
@@ -18,7 +18,7 @@ Auth on Namecheap's official MCP server is broken (OAuth discovery points at `ww
 * **`domains`**: `list`, `get`, `check`, `set_nameservers`, `set_contacts`, `set_lock`, `register`, `renew`, `balances`
 * **`dns`**: `get`, `set` (safe read-merge-write with automatic `EmailType` promotion/demotion, or `mode: "replace"`), `delete`, `set_email_forwarding`
 
-## Setup
+## Usage
 
 ```sh
 $ npm i
@@ -34,8 +34,8 @@ Configure either **Direct Namecheap API** credentials or a **Bearer Proxy** in `
 {
 	"mcpServers": {
 		"namecheap": {
-			"command": "node",
-			"args": ["/path/to/namecheap-mcp/index.js"]
+			"command": "npx",
+			"args": ["-y", "github:jessetane/namecheap-mcp"]
 		}
 	}
 }
