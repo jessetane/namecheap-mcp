@@ -1,0 +1,21 @@
+{
+	"name": "namecheap-mcp",
+	"version": "0.1.0",
+	"type": "module",
+	"description": "Stdio MCP server for Namecheap domains and DNS",
+	"main": "index.js",
+	"bin": {
+		"namecheap-mcp": "./index.js"
+	},
+	"scripts": {
+		"start": "node index.js",
+		"test": "node --test test/index.js"
+	},
+	"dependencies": {
+		"dotenv": "^17.4.2",
+		"rpc-engine": "^12.1.5"
+	},
+	"engines": {
+		"node": ">=22.5.0"
+	}
+}
