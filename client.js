@@ -158,13 +158,12 @@ export function createClient (opts = {}) {
 			headers.Authorization = `Bearer ${token}`
 		} else if (apiKey) {
 			const user = opts.user || process.env.NAMECHEAP_USER || ''
-			const apiUser = opts.apiUser || process.env.NAMECHEAP_API_USER || user
 			const clientIp = opts.clientIp || process.env.NAMECHEAP_CLIENT_IP || ''
 			if (!user || !clientIp) {
 				throw new Error('NAMECHEAP_USER and NAMECHEAP_CLIENT_IP are required when using NAMECHEAP_API_KEY')
 			}
 			baseUrl = configuredUrl || DEFAULT_URL
-			cleanParams.ApiUser = apiUser
+			cleanParams.ApiUser = user
 			cleanParams.ApiKey = apiKey
 			cleanParams.UserName = user
 			cleanParams.ClientIp = clientIp

@@ -16,7 +16,7 @@ $ cp .env.example .env
 
 Configure either **Direct Namecheap API** credentials or a **Bearer Proxy** in `.env` (or via `env` in `mcp_config.json`):
 
-* **Direct API mode**: set `NAMECHEAP_API_KEY`, `NAMECHEAP_USER`, and `NAMECHEAP_CLIENT_IP` (plus optional `NAMECHEAP_API_USER` and `NAMECHEAP_URL`, which defaults to `https://api.namecheap.com/xml.response`).
+* **Direct API mode**: set `NAMECHEAP_API_KEY`, `NAMECHEAP_USER`, and `NAMECHEAP_CLIENT_IP` (plus optional `NAMECHEAP_URL`, which defaults to `https://api.namecheap.com/xml.response`).
 * **Bearer Proxy mode**: set `NAMECHEAP_URL` and `NAMECHEAP_TOKEN`.
 
 ```json
